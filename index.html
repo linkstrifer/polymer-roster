@@ -3,15 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <link href="bower_components/iron-ajax/iron-ajax.html" rel="import">
+    <link href="elements/schedule-match.html" rel="import">
 </head>
-<body fullbleed unresolved>
-<iron-ajax
-    auto
-    url="https://api.challonge.com/v1/tournaments.json"
-    headers='{"Authorization": "Basic bGlua3N0cmlmZXI6WlhFS3JOU290N3F1NGQ1b21pSEZ2Y1NoTDZVQWdsS3RVODRUdVdYZw=="}'
-    method="GET"
-    handle-as="json"
-    on-response="handleResponse"
-    debounce-duration="300"></iron-ajax>
-    <todo-app></todo-app>
+<body unresolved>
+    <schedule-match data="{{data}}"></schedule-match>
 </body>
