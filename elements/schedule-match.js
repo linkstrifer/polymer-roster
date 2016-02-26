@@ -39,7 +39,7 @@ Polymer({
             if(blacklist.indexOf(id) === -1) {
                 return false;
             }
-            
+
             return true;
         }
         
@@ -58,22 +58,20 @@ Polymer({
         }
 
         participants.sort(sortPositions);
-        
-        for(var i = 0; i < participants.length; i++) {
-            if(isBlacklist(participants[i].id)) {
-                participants.splice(i, 1);
-            }
-        }
 
-        for(var i = 0; i < participants.length; i++) {
+        self.participants = participants.filter(function(el) {
+            if(!isBlacklist(el.id)) {
+                return el;
+            }
+        });
+
+        for(var i = 0; i < self.participants.length; i++) {
             if(i + 1 < 10) {
-                participants[i].rank = '#0' + (i + 1);
+                self.participants[i].rank = '#0' + (i + 1);
             } else {
-                participants[i].rank = '#' + (i + 1);
+                self.participants[i].rank = '#' + (i + 1);
             }
         }
-
-        self.participants = participants;
     },
     ready: function() {
         this.$.ajax.generateRequest();
