@@ -19,7 +19,7 @@ Polymer({
         var matches = data.tournament.matches;
         var participants = [];
         var scores = [];
-        var blacklist = [34218850, 34218844, 34218853, 34218858, 34218843, 34218852];
+        var blacklist = [34218850, 34218844, 34218853, 34218858, 34218843, 34218852, 34218857, 34218840];
         
         function addPoints(element, index, array) {
             if(element.match.state === 'complete') {
